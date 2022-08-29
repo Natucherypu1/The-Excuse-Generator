@@ -18,21 +18,26 @@ window.onload = function() {
   ];
 
   function getRandomNumber(limit) {
+    // Math.floor(Math.random() * limit) this line of code will get a random number from 0 to limit -1
     return Math.floor(Math.random() * limit);
   }
 
-  let excuse =
-    who[getRandomNumber(who.length)] +
-    " " +
-    action[getRandomNumber(action.length)] +
-    " " +
-    what[getRandomNumber(what.length)] +
-    " " +
-    when[getRandomNumber(when.length)];
-
-  console.log(excuse);
-
   let element = document.querySelector("#excuse");
 
-  element.innerHTML = excuse;
+  function makeExcuse() {
+    let excuse =
+      who[getRandomNumber(who.length)] +
+      " " +
+      action[getRandomNumber(action.length)] +
+      " " +
+      what[getRandomNumber(what.length)] +
+      " " +
+      when[getRandomNumber(when.length)];
+
+    element.innerHTML = excuse;
+  }
+  makeExcuse();
+
+  let excuseButton = document.querySelector("#genButton");
+  excuseButton.addEventListener("click", makeExcuse);
 };
